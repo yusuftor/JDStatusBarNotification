@@ -67,8 +67,9 @@ public class NotificationPresenter: NSObject, NotificationWindowDelegate {
     view.subtitle = subtitle
 
     window.isHidden = false;
+    #if !os(visionOS)
     window.statusBarViewController.setNeedsStatusBarAppearanceUpdate();
-
+    #endif
     return view
   }
 

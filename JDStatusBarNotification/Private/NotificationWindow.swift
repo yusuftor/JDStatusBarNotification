@@ -33,7 +33,11 @@ class NotificationWindow: UIWindow, NotificationViewControllerDelegate {
     if let windowSceneToUse {
       super.init(windowScene: windowSceneToUse)
     } else {
+      #if !os(visionOS)
       super.init(frame: UIScreen.main.bounds)
+      #else
+      super.init(frame: .zero)
+      #endif
     }
 
     self.delegate = delegate
